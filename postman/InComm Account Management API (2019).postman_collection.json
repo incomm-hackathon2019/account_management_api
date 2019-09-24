@@ -1,0 +1,493 @@
+{
+	"info": {
+		"_postman_id": "0c440c9b-37ed-463f-9251-705e9ef5166a",
+		"name": "InComm Account Management API (2019)",
+		"description": "Collection of endpoints for the 2018 InComm Account Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account Related",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/accounts",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts"
+							]
+						},
+						"description": "Creates account for api key"
+					},
+					"response": []
+				},
+				{
+					"name": "List Accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/accounts",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts"
+							]
+						},
+						"description": "List accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/accounts/:account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								":account"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": ""
+								}
+							]
+						},
+						"description": "List accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Account Owner",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"owner\": \"JAMES\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/accounts/updateOwner/:account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"updateOwner",
+								":account"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts by Owner",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/accounts/owner/:owner",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"owner",
+								":owner"
+							],
+							"variable": [
+								{
+									"key": "owner",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account Balance",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"balance\": \"10000000025\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/accounts/updateBalance/:account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"updateBalance",
+								":account"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": ""
+								}
+							]
+						},
+						"description": "Sets account balance to value in body"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/accounts/:account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								":account"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": ""
+								}
+							]
+						},
+						"description": "Deletes account"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction Related",
+			"item": [
+				{
+					"name": "Create Transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"counterParty\": \"jpmorganchase\",\n  \"type\": \"debit\",\n  \"description\": \"ATM Withdrawal: 250 Williams St. Atlanta GA 30303-1041\",\n  \"amount\": 7500\n}"
+						},
+						"url": {
+							"raw": "{{host}}/accounts/:account/transactions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								":account",
+								"transactions"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": ""
+								}
+							]
+						},
+						"description": "List accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "List Transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/accounts/:account/transactions?counterParty=jpmorganchase&type=debit&after=2018-09-01&before=2018-09-30&pageSize=3&pageOffset=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								":account",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "counterParty",
+									"value": "jpmorganchase"
+								},
+								{
+									"key": "type",
+									"value": "debit"
+								},
+								{
+									"key": "after",
+									"value": "2018-09-01"
+								},
+								{
+									"key": "before",
+									"value": "2018-09-30"
+								},
+								{
+									"key": "pageSize",
+									"value": "3"
+								},
+								{
+									"key": "pageOffset",
+									"value": "1"
+								}
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": ""
+								}
+							]
+						},
+						"description": "Lists all transactions for account"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/accounts/:account/transactions/:transaction",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								":account",
+								"transactions",
+								":transaction"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": ""
+								},
+								{
+									"key": "transaction",
+									"value": ""
+								}
+							]
+						},
+						"description": "List accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Transaction",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/accounts/:accountId/transactions/:transactionId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								":accountId",
+								"transactions",
+								":transactionId"
+							],
+							"variable": [
+								{
+									"key": "accountId",
+									"value": ""
+								},
+								{
+									"key": "transactionId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All Transactions",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/accounts/:accountId/transactions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								":accountId",
+								"transactions"
+							],
+							"variable": [
+								{
+									"key": "accountId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "600454c6-55be-4c72-9077-ae3876eed624",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "74b156f9-6231-4d54-9058-e16285a38d5a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6b7a3a09-d442-436c-9b5c-9965d427e4fa",
+			"key": "host",
+			"value": "https://us-central1-incomm-hackathon-api.cloudfunctions.net/api",
+			"type": "string"
+		},
+		{
+			"id": "45da0971-baf6-4d75-8776-0e2f16469bb2",
+			"key": "apiKey",
+			"value": "vYEUdySyiyAbpDYLal0g",
+			"type": "string"
+		}
+	]
+}
