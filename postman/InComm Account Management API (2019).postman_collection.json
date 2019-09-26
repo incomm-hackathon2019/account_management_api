@@ -82,13 +82,6 @@
 								"accounts",
 								":account"
 							],
-							"query": [
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								}
-							],
 							"variable": [
 								{
 									"key": "account",
